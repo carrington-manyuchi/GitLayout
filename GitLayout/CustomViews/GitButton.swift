@@ -9,12 +9,29 @@ import UIKit
 
 class GitButton: UIButton {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    init(title: String, backgroundColor: UIColor, titleColor: UIColor) {
+        super.init(frame: .zero)
+        self.backgroundColor = backgroundColor
+        setTitleColor(titleColor, for: .normal)
+        setTitle(title, for: .normal)
+        configure()
+    }
+    
+    func configure() {
+        layer.cornerRadius = 25
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 2
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
 }
